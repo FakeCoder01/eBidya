@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>eBidya</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img style="max-width: 80px;" src="{% static 'img/logo.png' %}" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Premium</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/pro/jee">JEE</a></li>
+                            <li><a class="dropdown-item" href="/pro/neet">NEET</a></li>
+                            <li><a class="dropdown-item" href="/pro/upsc">UPSC</a></li>
+                            <li><a class="dropdown-item" href="/pro/cat">CAT</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/buy">GET NOW</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/buy">OFFERS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav" style="margin-right: 20px; margin-left: auto;">
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/course">Courses</a></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart">Cart</a></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"  href="/support">Support</a>
+                    </li>
+                    {% if request.session.user_status.isLoggedIn == True %}
+                        <li class="nav-item dropdown menu-end">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{request.session.user_status.username}} </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="/account/subscriptions">Subscriptions</a></li>
+                                    <li><a class="dropdown-item" href="/account">Settings</a></li>
+                                    <li><a class="dropdown-item" href="//account/subscriptions#previous">Order History</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/logout">Log out</a></a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="/login">Log in</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <form class="d-flex" style="margin-right: 16px;">
+                    <input class="form-control" query type="text" placeholder="Search">
+                    <button class="btn btn-default" style="color: #333;background-color: #fff;border-color: #ccc; margin-left: 2px;" type="button">Search</button>
+                </form>
+
+
+            </div> 
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Page title -->
+                <div class="my-5">
+                    <h3>My Profile</h3>
+                    <hr>
+                </div>
+                <!-- Form START -->
+                <form class="file-upload">
+                    <div class="row mb-5 gx-5">
+
+                        <!-- Contact detail -->
+                        <div class="col-xxl-8 mb-5 mb-xxl-0">
+                            <div class="bg-secondary-soft px-4 py-5 rounded">
+                                <div class="row g-3">
+                                    <h4 class="mb-4 mt-0">Contact details</h4>
+                                    <!--  Name -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Name *</label>
+                                        <input type="text" name="username" class="form-control" placeholder="Name.." aria-label="First name" value="{{context.username}}">
+                                    </div>
+                                    <!-- Gender -->
+                                    <div class="col-md-6">
+                                        <label class="form-label"> Sex *</label>
+                                        <input list="All-Gender" type="text" name="gender" class="form-control" placeholder="Sex.." aria-label="Sex.." value="{{context.gender}}">
+                                        <datalist id="All-Gender">
+                                            <option value="Male">
+                                            <option value="Female">
+                                            <option value="Others">
+                                        </datalist>
+                                    </div>
+                                    <!-- Mobile number -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Mobile number *</label>
+                                        <input type="text" class="form-control" name="phone" placeholder="Mobile number.." aria-label="Phone number" value="{{context.phone}}">
+                                    </div>
+                                    <!-- Email -->
+                                    <div class="col-md-6">
+                                        <label for="inputEmail4" class="form-label">Email *</label>
+                                        <input type="email" class="form-control" id="inputEmail4" name="email" value="{{context.email}}" placeholder="Email..">
+                                    </div>
+                                    <!-- Current education level -->
+                                    <div class="col-md-6">
+                                        <label for="current_education" class="form-label">Current education level *</label>
+                                        <input type="text" list="grades" class="form-control" id="current_education" name="current_education" aria-label="Current education level.." value="{{context.current_education}}" placeholder="Current education level..">
+
+                                        <datalist id="grades">
+                                            <option value="10">
+                                            <option value="11">
+                                            <option value="12">
+                                            <option value="Undergraduate">
+                                            <option value="Other">
+                                        </datalist>
+                                    </div>
+                                    <!-- Target exam  -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Target exam *</label>
+
+                                        <input list="exam_names" type="text" name="target_exam" class="form-control" placeholder="Target exam.." aria-label="Target exam.." value="{{context.target_exam}}">
+                                        <datalist  id="exam_names">
+                                            <option value="NEET">
+                                            <option value="JEE">
+                                            <option value="12th">
+                                            <option value="PSU">
+                                            <option value="CAT">
+                                            <option value="UPSC">
+                                            <option value="Other">
+                                        </datalist>
+                                    </div>
+                                </div> <!-- Row END -->
+                            </div>
+                        </div>
+
+                        <!-- Upload profile -->
+                        <div class="col-xxl-4">
+                            <div class="bg-secondary-soft px-4 py-5 rounded">
+                                <div class="row g-3">
+                                    <!-- <h4 class="mb-4 mt-0">Heading</h4> -->
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row END -->
+
+
+                    <!-- Social media detail -->
+                    <div class="row mb-5 gx-5">
+                        <div class="col-xxl-6 mb-5 mb-xxl-0">
+                            <div class="bg-secondary-soft px-4 py-5 rounded">
+                                <div class="row g-3">
+                                    <h4 class="mb-4 mt-0">Address details</h4>
+                                    <!-- Educational institution -->
+                                    <div class="col-md-6">
+                                        <label class="form-label"> Educational institution *</label>
+                                        <input type="text" class="form-control" name="educational_institution" placeholder="Educational institution.." aria-label="Educational institution.." value="{{context.educational_institution}}">
+                                    </div>
+                                    <!-- Stream -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Stream *</label>
+                                        <input type="text" id="stream" name="stream" class="form-control" placeholder="Stream.." aria-label="Stream.." value="{{context.stream}}">
+                                    </div>
+                                    <!-- Address -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Address *</label>
+                                        <input type="text" name="address" class="form-control" placeholder="Address.." aria-label="Address.." value="{{context.address}}">
+                                    </div>
+                                    <!-- Pincode -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Pincode *</label>
+                                        <input type="text" name="pincode" class="form-control" placeholder="Pincode.." aria-label="Pincode.." value="{{context.pincode}}">
+                                    </div>
+                                    <!-- City -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">City *</label>
+                                        <input type="text" name="city" class="form-control" placeholder="City.." aria-label="City.." value="{{context.city}}">
+                                    </div>
+                                    <!-- State -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">State *</label>
+                                        <input type="text" name="state" class="form-control" placeholder="State.." aria-label="State.." value="{{context.state}}">
+                                    </div>
+                                </div> <!-- Row END -->
+                            </div>
+                        </div>
+
+                        <!-- change password -->
+                        <div class="col-xxl-6">
+                            <div class="bg-secondary-soft px-4 py-5 rounded">
+                                <div class="row g-3">
+                                    <h4 class="my-4">Change Password</h4>
+                                    <!-- Old password -->
+                                    <div class="col-md-6">
+                                        <label for="old-password" class="form-label">Old password *</label>
+                                        <input type="password" class="form-control" name="old-password" placeholder="Old password.." id="old-password">
+                                    </div>
+                                    <!-- New password -->
+                                    <div class="col-md-6">
+                                        <label for="new-password" class="form-label">New password *</label>
+                                        <input type="password" class="form-control" id="new-password" name="new-password" placeholder="New password..">
+                                    </div>
+                                    <!-- Confirm password -->
+                                    <div class="col-md-12">
+                                        <label for="confirm-password" class="form-label">Confirm Password *</label>
+                                        <input type="password" class="form-control" id="confirm-password" name="confirm-password" placeholder="Retype new password..">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Row END -->
+                    <input type="hidden" value="{{context.userid}}" name="userid" required>   
+                    <!-- button -->
+                    <div class="gap-3 d-md-flex justify-content-md-end text-center">
+                        <button type="button" class="btn btn-primary btn-lg">Update profile</button>
+                        
+                    </div>
+                </form> <!-- Form END -->
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+</body>
+</html>
+
+

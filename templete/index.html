@@ -1,0 +1,243 @@
+  {% extends 'base.html' %}
+
+
+  {% block body %}
+  <title>eBidya</title>
+  
+  <h1>{{user_status.username}}</h1>
+    <div class="jumbotron">
+      <div class="container">
+          
+          <h1>The Next is You</h1>
+          <p>Log in now and crack your exam with confidence. Learn from top teachers who will make sure you understand all the topic and concepts. Clear your doubts today</p>
+          <p><a class="btn btn-primary btn-lg" href="/signup" role="button">Start learning</a></p>
+          <h3><a  class="label label-success" href="#jee">IIT JEE</a> <a  class="label label-success" href="#neet">NEET</a> <a  class="label label-success"  href="#boards">12th</a> <a  class="label label-success"  href="#cat">CAT</a> <a  class="label label-success" href="#psu">PSU</a> <a  class="label label-success" href="#upsc">UPSC</a> <a  class="label label-success" href="#programming">Programming</a></h3>
+      </div>
+    </div>
+
+
+    <div id="jee" class="container">
+        <h2>JEE Mathematics</h2>
+        <div class="row">
+          {% for video in context.jee_videos_math %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/jee/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+
+
+    <div class="container">
+      <h2>JEE Physics</h2>
+      <div class="row">
+          {% for video in context.jee_videos_physics %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/jee/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+      </div>
+    </div>
+
+    <div class="container">
+        <h2>JEE Chemistry</h2>
+        <div class="row">
+          {% for video in context.jee_videos_chemistry %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/jee/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+
+
+    <div id="neet" class="container">
+        <h2>NEET Biology</h2>
+        <div class="row">     
+          {% for video in context.neet_videos_biology %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/neet/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="container">
+      <h2>NEET Physics </h2>
+      <div class="row">
+        {% for video in context.neet_videos_physics %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/neet/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+    <div class="container">
+      <h2>NEET Chemistry</h2>
+      <div class="row">
+        {% for video in context.neet_videos_chemistry %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/neet/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+    <div id="boards" class="container">
+        <h2>12th Science</h2>
+        <div class="row">
+          {% for video in context.boards_videos %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/boards/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h2>12th Arts & Commerce</h2>
+        <div class="row">
+          {% for video in context.boards_videos %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/boards/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+
+    <div id="cat" class="container">
+        <h2>CAT</h2>
+        <div class="row">
+          {% for video in context.cat_videos %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/cat/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+
+    <div id="psu" class="container">
+        <h2>PSU</h2>
+        <div class="row">
+          {% for video in context.psu_videos %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/psu/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+
+    <div id="upsc" class="container">
+        <h2>UPSC</h2>
+        <div class="row">
+          {% for video in context.upsc_videos %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/upsc/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+
+    <div id="programming" class="container">
+        <h2>Data Structure and Algorithm</h2>
+        <div class="row">
+          {% for video in context.progm_videos %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/progm/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h2>Dynamic Programming</h2>
+        <div class="row">
+          {% for video in context.progm_videos %}
+            <div class="col-xs-6 col-md-3">
+              <a href="/watch/progm/{{video.video_id}}" class="thumbnail">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                <div class="caption">
+                    <p>{{ video.title }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+     
+</body>
+</html>
+
+{% endblock body %}

@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Video Upload | eBidya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container position-absolute top-50 start-50 translate-middle">
+
+
+        <form action="" method="POST">
+            <h4 class="my-4">SELECT EXAM NAME</h4>
+            {% csrf_token %}
+            <select name="exam" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option value="jee">JEE</option>
+                <option value="neet">NEET</option>
+                <option value="upsc">UPSC</option>
+                <option value="cat">CAT</option>
+                <option value="boards">BOARDS</option>
+                <option value="progm">PROGRM</option>
+                <option value="psu">PSU</option>
+                <option value="others">PSU</option>
+              </select>
+              <br><br>
+              <div class="text-center">
+                <button type="submit" class="btn btn-lg btn-primary">Next</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

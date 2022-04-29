@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+<body class="login-page">
+
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+
+    <main>
+
+      <div class="login-block">
+        <img src="{% static 'img/eBidya.png' %}" alt=" eBidya">
+        <h1>Log into your account</h1>
+        {% if msg != ''  %}
+            <div class="alert alert-danger" role="alert">
+                {{ msg }}
+            </div>
+        {% endif %}    
+        <form action="/login/" method="POST">
+         
+            {% csrf_token %}
+
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope ti-email"></i></span>
+              <input type="email" name="email" class="form-control" placeholder="email">
+            </div>
+          </div>
+          
+          <hr class="hr-xs">
+
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock ti-unlock"></i></span>
+              <input type="password" name="password" class="form-control" placeholder="password">
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">Log in</button>
+
+          <div class="login-footer">
+            <h6>Or register with</h6>
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="login-links">
+        <p class="text-center">Don't have an account? <a class="txt-brand" href="/signup">create now</a></p>
+      </div>
+
+    </main>
+
+  {% endblock body %}

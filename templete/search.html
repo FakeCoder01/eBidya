@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+        <title>{{ context.title }}</title>
+        <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    </head>
+    <body>
+
+        <div class="container">
+            <br>
+            <h4 class="mb-4 mt-0 my-12"> Results of <strong>"{{ context.search_query }}"</strong>  search </h4>
+            <hr><br>
+            {% for s_result in context.jee_search %}
+                <div class="col-xs-6 col-md-3">
+                    <a href="/watch/jee/{{s_result.video_id}}" class="thumbnail">
+                    <img src="/{{ s_result.thumbnail }}" alt="{{s_result.title}}">
+                    <div class="caption">
+                        <p>{{s_result.title}}</p>
+                    </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+
+
+            {% for s_result in context.neet_search %}
+                <div class="col-xs-6 col-md-3">
+                    <a href="/watch/neet/{{s_result.video_id}}" class="thumbnail">
+                    <img src="/{{ s_result.thumbnail }}" alt="{{s_result.title}}">
+                    <div class="caption">
+                        <p>{{s_result.title}}</p>
+                    </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+
+            {% for s_result in context.boards_search %}
+                <div class="col-xs-6 col-md-3">
+                    <a href="/watch/boards/{{s_result.video_id}}" class="thumbnail">
+                    <img src="/{{ s_result.thumbnail }}" alt="{{s_result.title}}">
+                    <div class="caption">
+                        <p>{{s_result.title}}</p>
+                    </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+
+
+            {% for s_result in context.cat_search %}
+                <div class="col-xs-6 col-md-3">
+                    <a href="/watch/cat/{{s_result.video_id}}" class="thumbnail">
+                    <img src="/{{ s_result.thumbnail }}" alt="{{s_result.title}}">
+                    <div class="caption">
+                        <p>{{s_result.title}}</p>
+                    </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+
+            {% for s_result in context.upsc_search %}
+                <div class="col-xs-6 col-md-3">
+                    <a href="/watch/upsc/{{s_result.video_id}}" class="thumbnail">
+                    <img src="/{{ s_result.thumbnail }}" alt="{{s_result.title}}">
+                    <div class="caption">
+                        <p>{{s_result.title}}</p>
+                    </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+
+            {% for s_result in context.psu_search %}
+                <div class="col-xs-6 col-md-3">
+                    <a href="/watch/psu/{{s_result.video_id}}" class="thumbnail">
+                    <img src="/{{ s_result.thumbnail }}" alt="{{s_result.title}}">
+                    <div class="caption">
+                        <p>{{s_result.title}}</p>
+                    </div>
+                    </a>
+                </div>
+            {% endfor %}
+
+            {% for s_result in context.progm_search %}
+                <div class="col-xs-6 col-md-3">
+                    <a href="/watch/progm/{{s_result.video_id}}" class="thumbnail">
+                    <img src="/{{ s_result.thumbnail }}" alt="{{s_result.title}}">
+                    <div class="caption">
+                        <p>{{s_result.title}}</p>
+                    </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+
+
+    </body>
+    <script src="{% static 'js/search.js' %}"></script>
+</html>
+
+
+{% endblock body %}

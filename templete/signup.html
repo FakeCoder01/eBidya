@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+
+<section class="h-100 h-custom gradient-custom-2">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12">
+          <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+            <div class="alert alert-danger" role="alert">{{ msg }}</div>
+            <form action="/register/" method="POST">
+              {% csrf_token %}
+              <div class="card-body p-0">
+                <div class="row g-0">
+                  <div class="col-lg-6">
+                    <div class="p-5">
+                      <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
+    
+                      <div class="mb-4 pb-2">
+                        <select name="gender" class="select">
+                          <option value="male">Mr.</option>
+                          <option value="female">Ms. </option>
+                          <option value="female">Mrs. </option>
+                        </select>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
+    
+                          <div class="form-outline">
+                            <input type="text" name="fname" id="form3Examplev2" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Examplev2">First name</label>
+                          </div>
+    
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+    
+                          <div class="form-outline">
+                            <input type="text" name="lname" id="form3Examplev3" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Examplev3">Last name</label>
+                          </div>
+    
+                        </div>
+                      </div>
+    
+                      <div class="mb-4 pb-2">
+                          <select name="current_education" id="current-education" class="select">
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                              <option value="Undergraduate">Undergraduate</option>
+                              <option value="Other">Other</option>
+                            </select>
+                            <label class="form-label" for="current-education">Current Education Level</label>
+                      </div>
+    
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline">
+                          <input type="text" name="stream" id="form3Examplev4" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplev4">Stream</label>
+                        </div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
+    
+                          <div class="form-outline">
+                            <input type="text" name="educational_institution" id="form3Examplev5" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Examplev5">Educational Institution</label>
+                          </div>
+    
+                        </div>
+                        <div class="col-md-6">
+    
+                          <select id="target-exam" name="target_exam" class="select">
+                              <option value="JEE">JEE</option>
+                              <option value="NEET">NEET</option>
+                              <option value="12th">12th</option>2t
+                              <option value="UPSC">UPSC</option>
+                              <option value="CAT">CAT</option>
+                              <option value="Other">Other</option>
+                            </select>
+                          <label class="form-label" for="target-exam">Target Exam</label>
+                            <hr>
+                        </div>
+                      </div>
+    
+                    </div>
+                  </div>
+                  <div class="col-lg-6 bg-indigo text-white">
+                    <div class="p-5">
+                      <h3 class="fw-normal mb-5">Contact Details</h3>
+    
+    
+                      <div class="row">
+                        <div class="col-md-5 mb-4 pb-2">
+    
+                          <div class="form-outline form-white">
+                            <input type="number" name="pincode" id="form3Examplea4" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Examplea4">Pin Code</label>
+                          </div>
+    
+                        </div>
+                        <div class="col-md-7 mb-4 pb-2">
+    
+                          <div class="form-outline form-white">
+                            <input type="text" name="city" id="form3Examplea5" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Examplea5">City/Town</label>
+                          </div>
+    
+                        </div>
+                      </div>
+    
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline form-white">
+                          <input type="text" name="address" id="form3Examplea6" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea6">Address</label>
+                        </div>
+                      </div>
+    
+                      <div class="row">
+                        <div class="col-md-5 mb-4 pb-2">
+    
+                          <div class="form-outline form-white">
+                            <input type="text" name="state" id="form3Examplea4" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Examplea4">State</label>
+                          </div>
+                        </div>
+  
+                        <div class="col-md-7 mb-4 pb-2">
+    
+                          <div class="form-outline form-white">
+                            <input type="tel" name="phone" id="form3Examplea8" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Examplea8">Phone Number</label>
+                          </div>
+    
+                        </div>
+                      </div>
+    
+                      <div class="mb-4">
+                        <div class="form-outline form-white">
+                          <input type="email" name="email" id="form3Examplea9" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea9">Your Email</label>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="mb-4">
+                        <div class="form-outline form-white">
+                          <input type="password" name="password" id="password" class="form-control form-control-lg" />
+                          <label class="form-label" for="password">Passsword</label>
+                        </div>
+                      </div>
+
+                      <div class="mb-4">
+                        <div class="form-outline form-white">
+                          <input type="password" name="cpassword" id="password" class="form-control form-control-lg" />
+                          <label class="form-label" for="confirm-password">Confirm password</label>
+                        </div>
+                      </div>
+    
+                      <div class="form-check d-flex justify-content-start mb-4 pb-3">
+                        <input
+                          class="form-check-input me-3"
+                          type="checkbox"
+                          value=""
+                          id="form2Example3c"
+                          checked
+                        />
+                        <label class="form-check-label text-white" for="form2Example3">
+                          I do accept the <a href="#!" class="text-white"><u>Terms and Conditions</u></a> of your site.
+                        </label>
+                      </div>
+    
+                      <button type="submit" class="btn btn-light btn-lg" data-mdb-ripple-color="dark">Register</button>
+    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock body %}
